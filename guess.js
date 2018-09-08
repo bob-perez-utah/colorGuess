@@ -11,7 +11,7 @@ window.setTimeout (function() {
 
     var squares = document.querySelectorAll(".square");
 
-    var pickedColor = colors[3];
+    var pickedColor = pickColor();
     var colorDisplay = document.getElementById("colorDisplay");
     var messageDisplay = document.querySelector("#message");
     colorDisplay.textContent = pickedColor;
@@ -42,6 +42,12 @@ window.setTimeout (function() {
             //change the color to match given color
             squares[i].style.background = color;
         }
+    }
+
+    function pickColor() {
+        //pick a random number
+        var random = Math.floor(Math.random() * colors.length);
+        return colors[random]
     }
 
 }, 500);
