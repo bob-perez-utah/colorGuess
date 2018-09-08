@@ -13,6 +13,7 @@ window.setTimeout (function() {
 
     var pickedColor = colors[3];
     var colorDisplay = document.getElementById("colorDisplay");
+    var messageDisplay = document.querySelector("#message");
     colorDisplay.textContent = pickedColor;
 
     for (var i = 0; i < squares.length; i++) {
@@ -25,11 +26,22 @@ window.setTimeout (function() {
               var clickedColor = this.style["background-color"]
             //compare color to pickedColor
             if (clickedColor === pickedColor) {
-                alert("Correct");
+                messageDisplay.textContent = "Correct !";
+                changeColors(clickedColor);
             } else {
-                alert("Wrong");
+                this.style.backgroundColor = "#232323"
+                messageDisplay.textContent = "Try Again";
+
             }
         });
+    }
+
+    function changeColors(color) {
+        // loop thru all squares
+        for (var i = 0; i < squares.length; i++) {
+            //change the color to match given color
+            squares[i].style.background = color;
+        }
     }
 
 }, 500);
