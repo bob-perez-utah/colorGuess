@@ -1,5 +1,5 @@
 window.setTimeout (function() {
-
+    
     var colors = generateRandomColors(6);
 
     var squares = document.querySelectorAll(".square");
@@ -10,6 +10,19 @@ window.setTimeout (function() {
 
     var h1 =  document.querySelector("h1");
     var resetButton = document.querySelector("#reset");
+    var easyBtn = document.getElementById("easyBtn");
+    var hardBtn = document.querySelector("#hardBtn");
+    
+    easyBtn.addEventListener("click", function() {
+        hardBtn.classList.remove("selected");
+        easyBtn.classList.add("selected");
+    });
+    
+    hardBtn.addEventListener("click", function() {
+        hardBtn.classList.add("selected");
+        easyBtn.classList.remove("selected");
+    });
+    
 
     resetButton.addEventListener("click", function() {
         // generate all new colors
